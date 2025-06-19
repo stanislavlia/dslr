@@ -53,7 +53,7 @@ if __name__ == '__main__':
                     alpha=0.5,
                     edgecolor="black",
                     color=house_colors[int(house)],
-                    label=houses[int(house)])
+                    label=houses[house])
         plt.legend()
         plt.title(f'Histogram of {feature} by House')
         plt.show()
