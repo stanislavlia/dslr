@@ -1,4 +1,7 @@
+.custom
+__pycache__
 dslr_venv
 *.pdf
 *.csv
 *.json
+*.pkl
