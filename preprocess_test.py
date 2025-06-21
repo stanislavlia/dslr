@@ -31,13 +31,13 @@ if __name__ == '__main__':
     with open('test_std.csv', 'w') as file:
         df_standardized.to_csv(file)
     
-    with open('vif_elim_cols.csv', 'r') as file:
-        elim_cols = pd.read_csv(file)
+    # with open('vif_elim_cols.csv', 'r') as file:
+    #     elim_cols = pd.read_csv(file)
     
-    elim_cols = elim_cols['dropped_feature'].tolist()
+    # elim_cols = elim_cols['dropped_feature'].tolist()
     
-    df_standardized.drop(columns=elim_cols, inplace=True)
+    # df_standardized.drop(columns=elim_cols, inplace=True)
         
-    with open('test_vif_elim.csv', 'w') as file:
-        df_standardized.to_csv(file)
+    # with open('test_vif_elim.csv', 'w') as file:
+    #     df_standardized.to_csv(file)
 
