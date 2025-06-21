@@ -27,6 +27,6 @@ if __name__ == '__main__':
     sns.pairplot(df,
                 hue='Hogwarts House',
                 palette=house_colors,
-                height=0.7,
+                height=2.5,
                 aspect=1)
     plt.show()
