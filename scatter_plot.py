@@ -5,7 +5,7 @@ import sys
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from custom import corr_max
+from custom import most_correlated_pair
 from house_colors import house_colors, labels
 
 
@@ -22,17 +22,20 @@ if __name__ == '__main__':
         print(f"Error reading CSV file: {e}")
         sys.exit(1)
 
+    
+    numeric_cols = df.select_dtypes(include='number').columns
+    corr_max_pair = most_correlated_pair(df[numeric_cols])
+    print(f'The feature with the highest correlation: {corr_max_pair}')
 
-    corr_max_pair = corr_max(df.drop(columns=['Hogwarts House']))
 
-
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(16, 9))
     ax = sns.scatterplot(data=df,
                     x=corr_max_pair[0],
                     y=corr_max_pair[1],
                     hue='Hogwarts House',
                     palette=house_colors)
-    plt.title('Visualization which displays a scatter plot answering the next question:\nWhat are the two features that are similar?')
+    plt.title('Visualization which displays a scatter plot answering the next question:\n\
+              What are the two features that are similar?')
     handles, _ = ax.get_legend_handles_labels()
     plt.legend(handles=handles, labels=labels)
     plt.show()

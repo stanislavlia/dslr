@@ -22,7 +22,6 @@ if __name__ == '__main__':
         print(f"Error reading CSV file: {e}")
         sys.exit(1)
 
-    df['Hogwarts House'] = target_decode(df['Hogwarts House'])
 
     sns.pairplot(df,
                 hue='Hogwarts House',
